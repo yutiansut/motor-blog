@@ -1,7 +1,7 @@
 import functools
 import inspect
 import logging
-import xmlrpclib
+import xmlrpc.client as xmlrpclib
 
 import tornadorpc
 from tornado import gen
@@ -57,7 +57,7 @@ def fault(fn):
     def _fault(self, *args, **kwargs):
         try:
             result = yield fn(self, *args, **kwargs)
-        except Exception, e:
+        except Exception as e:
             logging.exception('XML-RPC call "%s"' % fn.__name__)
             self.result(xmlrpclib.Fault(500, str(e)))
         else:

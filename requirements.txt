@@ -3,7 +3,7 @@ werkzeug
 pygments
 git+git://github.com/joshmarshall/tornadorpc.git
 tornado>=3
-motor==1.1
+motor>=1.1
 dictshield
 markdown
 beautifulsoup4

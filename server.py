@@ -32,7 +32,7 @@ if __name__ == "__main__":
     opts.parse_command_line()
     for handler in logging.getLogger().handlers:
         if hasattr(handler, 'baseFilename'):
-            print 'Logging to', handler.baseFilename
+            print ('Logging to', handler.baseFilename)
             break
 
     db = motor.MotorClient(opts.mongo_uri).get_default_database()
@@ -51,6 +51,6 @@ if __name__ == "__main__":
     http_server = httpserver.HTTPServer(application, xheaders=True)
     http_server.listen(opts.port)
     msg = 'Listening on port %s' % opts.port
-    print msg
+    print (msg)
     logging.info(msg)
     loop.start()
