@@ -1,15 +1,14 @@
 import datetime
 
-from bson.objectid import ObjectId
-from dictshield.document import Document, EmbeddedDocument
-from dictshield.fields import StringField, IntField, DateTimeField
-from dictshield.fields.compound import SortedListField, EmbeddedDocumentField, ListField
-from dictshield.fields.mongo import ObjectIdField
-
-from motor_blog.text.link import absolute
-
 import pytz
-from motor_blog.text import markup, summarize, slugify, plain
+from bson.objectid import ObjectId
+
+from dictshield.document import Document, EmbeddedDocument
+from dictshield.fields import (DateTimeField, EmbeddedDocumentField, IntField,
+                               ListField, ObjectIdField, SortedListField,
+                               StringField)
+from motor_blog.text import markup, plain, slugify, summarize
+from motor_blog.text.link import absolute
 
 utc_tz = pytz.timezone('UTC')
 
@@ -68,7 +67,7 @@ class EmbeddedCategory(Category, EmbeddedDocument):
 class GuestAccessToken(EmbeddedDocument):
     """One who knows the guest access token can see the unpublished draft."""
     name = StringField()
-    token = ObjectIdField(auto_fill=True)
+    token = ObjectIdField()
 
 
 class Post(BlogDocument):

@@ -3,7 +3,7 @@ import datetime
 import os
 import pickle
 import time
-import xmlrpclib
+import xmlrpc.client as xmlrpclib
 from urlparse import urlparse, urljoin
 
 import motor

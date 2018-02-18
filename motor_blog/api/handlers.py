@@ -6,13 +6,11 @@
    Based heavily on http://www.allyourpixel.com/post/metaweblog-38-django/
 """
 
-import xmlrpclib
+import xmlrpc.client as xmlrpclib
 
-from tornadorpc.xml import XMLRPCHandler, XMLRPCParser
-
-from motor_blog.api import categories, posts, media, tags, users
+from motor_blog.api import categories, media, posts, tags, users
 from motor_blog.api.rsd import RSDHandler
-
+from tornadorpc.xml import XMLRPCHandler, XMLRPCParser
 
 __all__ = ('APIHandler', 'RSDHandler')
 
@@ -22,6 +20,7 @@ class WordpressParser(XMLRPCParser):
 
     Dispatches names like 'wp.getRecentPosts' to wp_getRecentPosts().
     """
+
     def parse_request(self, request_body):
         result = super(WordpressParser, self).parse_request(request_body)
         if isinstance(result, xmlrpclib.Fault):
@@ -41,5 +40,5 @@ class APIHandler(
         # on new and edited posts
         return [
             {'key': 'markdown', 'label': 'Markdown'},
-#            {'key': 'htmlauto', 'label': "Convert line breaks" },
+            #            {'key': 'htmlauto', 'label': "Convert line breaks" },
         ]

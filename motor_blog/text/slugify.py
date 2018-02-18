@@ -3,8 +3,7 @@ import sys
 import re
 from unicodedata import normalize
 from unidecode import unidecode
-reload(sys)
-sys.setdefaultencoding("utf-8")
+
 # From http://flask.pocoo.org/snippets/5/, updated to mostly duplicate
 # Wordpress's slugs.
 _punct_re = re.compile(r'[\t !#$%&\()*\-/<=>?@\[\\\]^_`{|},:.+]+')

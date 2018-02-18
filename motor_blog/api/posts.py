@@ -1,7 +1,7 @@
 """XML-RPC API for posts and pages
 """
 import datetime
-import xmlrpclib
+import xmlrpc.client as xmlrpclib
 
 from tornado import gen
 from bson.objectid import ObjectId
