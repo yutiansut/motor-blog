@@ -1,10 +1,10 @@
 pytz
 werkzeug
 pygments
-git+git://github.com/joshmarshall/tornadorpc.git
+git+https://github.com/yutiansut/tornadorpc
 tornado>=3
 motor>=1.1
-dictshield
+git+https://github.com/yutiansut/dictshield
 markdown
 beautifulsoup4
 requests
@@ -13,3 +13,4 @@ mock
 sockjs-tornado
 git+git://github.com/mirumee/google-measurement-protocol.git@34ded20d
 unidecode
+git+https://github.com/yutiansut/HTMLParser
